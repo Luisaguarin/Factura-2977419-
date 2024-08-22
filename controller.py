@@ -13,6 +13,17 @@ def clientes():
 def form_cliente():
     return render_template('from_cliente.html' , title="Formulario de clientes")
 
+@app.route("/agregar_producto")
+def agregar_producto():
+    if request.nethod == 'POST':
+        descripcion = request.form.get('descripcion')
+        valor_unitario = request.form.get('valor_unitario')
+        cantidad_stock = request.form.get ('cantidad_stock')
+        unidad_medida = request.form.get('unidad_medida')
+        categoria = request.form.get ('categoria')
+        productos = productos(descripcion,valor_unitario,cantidad_stock,unidad_medida,categoria,)
+        productos.agregar_producto(productos)
+    return render_template()
 from controllers import *
 
 if __name__ == '_main_':

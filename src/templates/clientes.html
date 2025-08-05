@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Clientes</h2>
+<form method="post" action="/agregar_cliente">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="email" name="correo" placeholder="Correo" required>
+    <button type="submit" class="btn btn-success">Agregar</button>
+</form>
+<table class="table mt-3">
+    <tr><th>ID</th><th>Nombre</th><th>Correo</th><th>Acción</th></tr>
+    {% for cliente in clientes %}
+    <tr>
+        <td>{{ cliente[0] }}</td>
+        <td>{{ cliente[1] }}</td>
+        <td>{{ cliente[2] }}</td>
+        <td><a href="/eliminar_cliente/{{ cliente[0] }}" class="btn btn-danger">Eliminar</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Generar Factura</h2>
+<form method="post">
+    <label>Selecciona Cliente:</label>
+    <select name="cliente" required>
+        {% for cliente in clientes %}
+        <option value="{{ cliente[0] }}">{{ cliente[1] }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label>Selecciona Productos:</label><br>
+    {% for producto in productos %}
+        <input type="checkbox" name="producto" value="{{ producto[0] }}">
+        {{ producto[1] }} - ${{ producto[2] }}<br>
+    {% endfor %}
+    <br>
+    <button type="submit" class="btn btn-primary">Generar Factura</button>
+</form>
+
+{% if cliente %}
+<hr>
+<h3>Factura para {{ cliente }}</h3>
+<ul>
+    {% for nombre, precio in productos %}
+        <li>{{ nombre }} - ${{ precio }}</li>
+    {% endfor %}
+</ul>
+<h4>Total: ${{ total }}</h4>
+{% endif %}
+{% endblock %}
+
+

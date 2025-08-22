@@ -6,3 +6,11 @@
 <h2>Bienvenido al sistema de facturación</h2>
 <p>Usa el menú para navegar entre clientes y productos.</p>
 {% endblock %}
+{% for categoria in categorias %}
+<tr>
+  <td>{{ categoria.nombre }}</td>
+  <td>
+    <a href="{{ url_for('form_editar', id=categoria.id) }}">Editar</a>
+  </td>
+</tr>
+{% endfor %}

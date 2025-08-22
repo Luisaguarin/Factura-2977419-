@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Categoría</title>
+</head>
+<body>
+    <h1>Editar Categoría</h1>
+    <form method="POST" action="{{ url_for('editar', id=categoria.id) }}">
+        <label for="nombre">Nombre de la categoría:</label>
+        <input type="text" id="nombre" name="nombre" value="{{ categoria.nombre_categoria }}" required>
+        <button type="submit">Guardar cambios</button>
+    </form>
+</body>
+</html>
+

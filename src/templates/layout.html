@@ -36,8 +36,11 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item"><a class="nav-link" href="#">Facturas</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url_for('clientes') }}">Clientes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url_for('productos') }}">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('clientes.clientes') }}">Clientes</a></li>
+                        <a class="nav-link" href="{{ url_for('productos.vista_principal_productos') }}">Productos</a>
+
+
+
                     </ul>
                 </div>
             </nav>

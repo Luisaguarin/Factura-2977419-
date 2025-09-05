@@ -4,7 +4,10 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 import sqlite3
 import os
 import pymysql
+from sqlalchemy.ext.declarative import declarative_base
 
+engine = create_engine('sqlite:///mydatabase.db', echo=True)
+Base = declarative_base()
 engine = create_engine("mysql+pymysql://root:@localhost/factura_243")
 
 conection = engine.connect()

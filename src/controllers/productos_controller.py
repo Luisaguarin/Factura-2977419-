@@ -3,7 +3,13 @@ from flask_controller import FlaskController
 from src.models.productos import Productos
 from src.models.categorias import Categorias
 from src.app import app
+from flask import Blueprint, render_template
 
+productos_bp = Blueprint('productos', __name__, url_prefix='/productos')
+
+@productos_bp.route('/')
+def listar():
+    return 'Listado de productos'
 
 
 @app.route('/productos')
@@ -36,3 +42,7 @@ def nuevo_producto():
     
     categorias = Categorias.traer_categorias()
     return render_template('formulario_producto.html', titulo='Crear producto', categorias=categorias)
+
+@app.route('/productos/nuevo')
+def nuevo_producto():
+    return render_template('productos/formulario_producto.html')
